@@ -28,11 +28,12 @@ void quickSort(int left,int right,int *data){
 				j++;
 				swap(&data[j], &data[i]);
 			}
+		}
 			swap(&data[left],&data[j]);
 			pivot = j;
-
+			
 			quickSort(left,pivot-1,data);
 			quickSort(pivot+1, right,data);
-		}
+		
 	}
 }
