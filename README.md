@@ -8,6 +8,8 @@
 
 * 1 commit / 1 day == 1 problem / 1 day :heavy_exclamation_mark: at least :heavy_exclamation_mark: 
 
+* Calcuate BigO after solving
+
 # Reference
 
 - Leetcode
