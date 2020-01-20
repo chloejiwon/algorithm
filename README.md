@@ -1,6 +1,7 @@
 # Introduction
 
 :speech_balloon: This is the project of :pencil: Problem solving part :pencil: on "Today I learn" 
+
 :speech_balloon: Goals : Clean code, Getting strategic thinking process, Improving problem solving skills...
 
 # Principles
