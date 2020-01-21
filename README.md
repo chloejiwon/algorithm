@@ -10,7 +10,7 @@
 
 * Calcuate BigO after solving
 
-You can get 5 :cherries: for solving performance 
+* You can get 5 :cherries: for solving performance 
 
 # Reference
 
@@ -20,9 +20,13 @@ You can get 5 :cherries: for solving performance
 
 
 # Problem Solving 
+
 ## leetcode
+
 #### 532. K-diff Pairs in an Array
+
 :cherries: :cherries:
+
 :white_check_mark: Need to solve one more time
 
 Easy problem. but needs to think twice.
