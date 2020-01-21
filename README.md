@@ -35,3 +35,14 @@ If we delete duplicated elements in array, only need to think i+k.
 (because i-k is will be counted on (i-k+k) )
 
 
+#### 459. Repeated Substring Pattern
+
+:cherries: :cherries: :cherries: :cherries:
+
+:white_check_mark: Find optimal solution
+
+:white_check_mark: O(nlogn)
+
+I didn't look into Other people's solution. :) 
+
+But needs to think of an optimal solution. b/c faster than 49.5%..
