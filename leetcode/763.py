@@ -4,7 +4,6 @@ class Solution(object):
         :type S: str
         :rtype: List[int]
         """
-        counter = collections.Counter(S)
         startIdx, endIdx = 0,0
         res = []
         for s in S:
