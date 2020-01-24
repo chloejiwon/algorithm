@@ -92,3 +92,43 @@ class Solution(object):
 simple idea. Last index of a letter should be minimum length of one partition.
 
 How about storing last index values.. like Hashtable? 
+
+
+
+# Let's Do the Basics
+
+## Algorithm
+
+
+### Sorting
+
+##### Quick Sort
+
+This is Divide and conqure method to sort. 
+
+1. Choose one elemenet which will be called 'pivot'
+
+2. All elements which are less than pivot are placed in Left side. All the others are placed in right side.
+
+3. Start Quick Sort in left part & right part seperately until there is no element left in list.
+
+- Time Complexity : O(nlogn)
+
+```python
+def quicksort(arr):
+        if len(arr) <= 1:
+                return arr
+        pivot = arr[len(arr)/2]
+        less_arr,equal_arr, bigger_arr = [], [],[]
+
+        for i in range(len(arr)):
+                if arr[i] < pivot :
+                        less_arr.append(arr[i])
+                elif arr[i] > pivot :
+                        bigger_arr.append(arr[i])
+                else :
+                        equal_arr.append(arr[i])
+        return quicksort(less_arr)+equal_arr+quicksort(bigger_arr)
+```
+
+## Data Structure
