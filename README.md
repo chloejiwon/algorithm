@@ -94,6 +94,22 @@ simple idea. Last index of a letter should be minimum length of one partition.
 How about storing last index values.. like Hashtable? 
 
 
+#### 56. Merge Intervals
+
+:cherries:
+
+:white_check_mark: Need to solve One More Time
+
+:white_check_mark: O(N)
+
+Need to think of an way to solve problems smart!!
+
+1. Sort all intervals with key = start point
+
+2. compare i and i+1 so that we know we should combine them or not.
+
+One More time. only beat 13% 
+
 
 # Let's Do the Basics
 
