@@ -21,6 +21,7 @@ def lengthOfLongestSubstring(s):
 	return window_size			
 """
 # Solution 2 : Optimized one
+"""
 def lengthOfLongestSubstring(s):
 	if not s:
 		return 0
@@ -32,6 +33,28 @@ def lengthOfLongestSubstring(s):
 			ans = max(ans, i-start+1)
 		dic[ch] = i
 	return ans
+"""
+# Solution 3 : On my Own
+def lengthOfLongestSubstring(s):
+	if not s:
+		return 0
+	N = len(s)
+	if len(set(s)) == N:
+		return N
+	maxLen,start,tmp,dic = float('-inf'),0,0, {}
+	for i,ch in enumerate(s):
+		if ch not in dic:
+			tmp +=1
+		else :
+			if start <= dic[ch]+1 :
+				start = dic[ch]+1
+			tmp = max(tmp, i-start+1)
+			maxLen = max(maxLen,tmp)
+			tmp = i-start+1
+		dic[ch] = i		
+	return max(maxLen,tmp)	
+s = "aab"
+print lengthOfLongestSubstring(s)
 
 s = "abcabcbb"
 print lengthOfLongestSubstring(s)
