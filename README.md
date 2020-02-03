@@ -111,6 +111,41 @@ Need to think of an way to solve problems smart!!
 One More time. only beat 13% 
 
 
+#### Longest Substring Without Repeating Characters (Medium)
+
+:cherries:
+
+:white_check_mark: O(N*N)
+
+1. Use Dictionary to check repeating characters.
+
+2. Save starting idx when new charactor begins. 
+
+3. ex ) "abba". maxLen = 2. when 'a' comes in, start should be 2, not 1. Because 'ab' is already calculated. 
+
+```python
+def lengthOfLongestSubstring(s):
+        if not s:
+                return 0
+        N = len(s)
+        # if this logic deleted, then speed is 32%. With it, speed is beating 55%.
+        if len(set(s)) == N:
+                return N
+        maxLen,start,tmp,dic = float('-inf'),0,0, {}
+        for i,ch in enumerate(s):
+                if ch not in dic:
+                        tmp +=1
+                else :
+                        if start <= dic[ch]+1 :
+                                start = dic[ch]+1
+                        tmp = max(tmp, i-start+1)
+                        maxLen = max(maxLen,tmp)
+                        tmp = i-start+1
+                dic[ch] = i
+        return max(maxLen,tmp)
+```
+
+
 # Let's Do the Basics
 
 ## Algorithm
