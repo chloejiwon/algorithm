@@ -39,3 +39,42 @@ class Solution(object):
 			break
 		tail = tail.next
 	return res.next
+
+# Solution 2 
+# Pass - beat 62.78% . But wrong answer few times.. need to be careful 
+# Use Carry integer value to make it faster. one loop only
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        a,b,carry = 0,0,0
+        res = ListNode(0)
+        tail = res
+        while True:
+            if not l1:
+                a = 0 
+            else : 
+                a = l1.val
+            if not l2:
+                b = 0
+            else : 
+                b = l2.val
+
+            c = (a+b+carry)%10
+            carry = (a+b+carry)//10
+            
+            tmp = ListNode(c)
+            
+            tail.next = tmp
+            tail = tail.next
+            if l1 :
+                l1 = l1.next
+            if l2:
+                l2 = l2.next
+            if not l1 and not l2 and carry==0:
+                break
+        return res.next
+            
