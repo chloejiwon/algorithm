@@ -15,6 +15,7 @@ class Solution(object):
 	# Making dp table
 	for i in range(m):
 		tmp = []
+		# Initialization
 		for j in range(n): 
 			if i == 0 :
 				tmp.append(1)
@@ -28,3 +29,5 @@ class Solution(object):
             for j in range(1,m):
 		dp[i][j] = dp[i-1][j]+dp[i][j-1]
 	return dp[n-1][m-1]
+
+
