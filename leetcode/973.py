@@ -22,3 +22,6 @@ class Solution(object):
         for i in range(K):
                 res.append(points[dist[i][0]])
         return res
+
+# Solution 2 (** need to do **)
+# Divide and conquer solution
