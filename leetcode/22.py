@@ -1,8 +1,9 @@
 # 22. Generate Parentheses
 
 # Solution 1 
-# Make like a tree and Use DFS. 
-# Time Complexity : O(nlogn) -  beat 81.12% 
+# Think like a tree and Use DFS. make a valid string every time and when is done, add them in the list.
+# Time Complexity : O(N*N) -  beat 81.12% 
+# Solutino says, time complexity for this is O(4^n / sqr(n))
 class Solution(object):
     def generateParenthesis(self, n):
         """
