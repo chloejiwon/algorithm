@@ -182,4 +182,64 @@ def quicksort(arr):
         return quicksort(less_arr)+equal_arr+quicksort(bigger_arr)
 ```
 
+
+### Dynamic Programming
+
+DP is essentially finding the best value at each step and using the way by storing intermediate results.
+
+Typically there are 3 ways.
+
+1. Recursion
+
+2. Store (memoize)
+
+3. Bottom-Up
+
+#### Fibonacci Number
+
+1. Recursion
+
+- Time Comlexity : O(2^n)
+
+```python
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n-1) + fib(n-2)
+
+```
+
+2. Store (memoize)
+
+- Time Complexity : O(2n+1) + O(1) = O(2n) = O(n)
+
+```python
+def fib(n,memo):
+        if memo[n]!=float('-inf'):
+                return memo[n]
+        if n<=1:
+                result = n
+        else :
+                result = fib(n-1,memo) + fib(n-2,memo)
+        memo[n] = result
+        return result
+```
+
+3. Bottom-UP
+
+- Time Complexity : O(n) (because going through n for loop only once)
+
+```python
+def fib(n):
+        # Dp table initialize
+        dp = [float('-inf')] * (n+1)
+        dp[0],dp[1] = 0,1
+
+        for i in range(2,n+1):
+                dp[i] = dp[i-1]+dp[i-2]
+
+        return dp[n]
+```
+
+
 ## Data Structure
