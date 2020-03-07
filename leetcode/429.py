@@ -24,8 +24,27 @@ class Solution(object):
                         for i in range(size):
                             cur = q.get()
                             tmp.append(cur.val)
-                            for child in cur.children:
-                                q.put(child)
+  			    print "cur.children = ",cur.children
+			    if cur.children != None:
+                            	for child in cur.children:
+                                	q.put(child)
                         res.append(tmp)
                 return res 
 
+
+node = Node()
+print node
+
+node.val = 3
+
+child = []
+child.append(Node(4))
+child.append(Node(1))
+node.children = child
+
+for child in node.children:
+	print child.val
+	child.children = None
+
+sol = Solution()
+print sol.levelOrder(node)
