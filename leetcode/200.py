@@ -125,3 +125,44 @@ class Solution(object):
         return count
 
 
+# Solution 4 - hmm.... I thought it would make time less...but just a little
+import Queue
+class Solution(object):
+    def bfs(self,grid,N,M,x,y):
+        dirr = [[0,1],[1,0],[-1,0],[0,-1]]
+        q = Queue.Queue()
+        if grid[x][y] == '1':
+            q.put([x,y])
+            while q.empty()==False:
+                adj = q.get()
+                if grid[adj[0]][adj[1]]=='1':
+                    grid[adj[0]][adj[1]]='3'
+                    for i in range(4):
+                            nx,ny = adj[0]+dirr[i][0],adj[1]+dirr[i][1]
+                            if nx >=0 and nx<N and ny >=0 and ny<M:
+                                    if grid[nx][ny]=='1':
+                                        q.put([nx,ny])
+        return grid
+    def numIslands(self, grid):
+        """
+        :type grid: List[List[str]]
+        :rtype: int
+        """
+        if not grid:
+            return 0
+        N = len(grid)
+        M = len(grid[0])
+        if N==0 :
+                return 0
+        count = 0
+        land = 0
+        stack,q=[],Queue.Queue()
+        for i in range(N):
+            for j in range(M):
+                if grid[i][j]=='1':
+                    stack.append([i,j])
+                    grid = self.bfs(grid,N,M,i,j)
+                    count+=1
+        return count
+
+
