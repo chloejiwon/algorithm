@@ -46,3 +46,45 @@ class Solution(object):
         else:
                 return minutes
 
+
+# Solution2 - Not import Queue. use collections.deque() is much Less! 58%
+# And one more important thing, if cnt == totalOrange : return , after that, queue.append
+# queue.append is taking so much
+class Solution(object):
+    def orangesRotting(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        if not grid:
+                return -1
+        queue = collections.deque()
+        N,M = len(grid), len(grid[0])
+        minutes,totalOrange = 0,0
+
+        for i in range(N):
+                for j in range(M):
+                        if grid[i][j]==2:
+                                queue.append([i,j,0])
+                        elif grid[i][j]==1:
+                                totalOrange+=1
+        cnt = 0
+        dirr = [[0,1],[0,-1],[1,0],[-1,0]]
+        while queue :
+                cur = queue.popleft()
+                if grid[cur[0]][cur[1]] == 2:
+                        grid[cur[0]][cur[1]] =3
+                        for i in range(4):
+                                nx,ny = cur[0]+dirr[i][0],cur[1]+dirr[i][1]
+                                if nx >=0 and nx <N and ny >=0 and ny <M :
+                                        if grid[nx][ny]==1:
+                                                cnt+=1     
+                                                grid[nx][ny]=2
+                                                if cnt == totalOrange:
+                                                    return cur[2]+1
+                                                queue.append([nx,ny,cur[2]+1])
+        if cnt != totalOrange:
+                return -1
+        else:
+                return minutes
+
