@@ -1,8 +1,10 @@
 #include <iostream>
-//#include <string>
 
 using namespace std;
 
+
+// Solution 1 - DP + Brute Force - Beat 99.8%
+// Time Complexity : O(N^3)
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
