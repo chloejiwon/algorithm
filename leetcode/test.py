@@ -1,13 +1,5 @@
 
-def change(stack):
-	stack[0] = 1
+A,B = input().split()
 
-stack=[]
-stack.append(-1)
-stack.append(2)
-
-print stack
-
-change(stack)
-
-stack
+print A+B
+print A-B
