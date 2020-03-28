@@ -5,6 +5,8 @@ using namespace std;
 
 // Solution 1 - DP + Brute Force - Beat 99.8%
 // Time Complexity : O(N^3)
+// Fixed DP table
+// DP[i] = keeps track of longest substr with last index i. 
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -20,13 +22,14 @@ public:
                 if(s[j] == s[i]){
                     // same character! start over
                     // make 'start' to be something not equal to s[j]!!
-                    dp[j] = 1; int k =0;
+                    int k =0;
                     for(k=i+1; k<j; k++){
                         if(s[k]!=s[j])
                             break;
                     }
                     start = k;
-                    break;
+                    dp[j] = j-start+1;
+		    break;
                 } else {
                     dp[j] ++;
                 }
