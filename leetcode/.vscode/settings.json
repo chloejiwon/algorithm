@@ -4,6 +4,7 @@
         "iosfwd": "cpp",
         "vector": "cpp",
         "memory": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "string": "cpp"
     }
 }

@@ -1,18 +1,14 @@
-
-#include <stdio.h>
 #include <vector>
+#include <string>
+#include <iostream>
+
 using namespace std;
 
-int orangesRotting(vector<vector<int>>& grid){
-	if(grid.empty()) return 0;
-	int N = grid.size(), M = grid[0].size();
-	queue<int> q;
-	
-
-}
 int main(){
-	vector<int> b = {0,1,2,3,4};
-	printf("hello"\n");
 
+	vector<string> s;
+	int cnt = 0;
+	s.push_back(to_string(cnt) + "hello");
+	cout << s[0] << endl;
 	return 0;
 }
