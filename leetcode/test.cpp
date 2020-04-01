@@ -15,7 +15,7 @@ int main(){
 
 	s.push_back(a);
 	s.push_back(b);
-	cout << a << endl;
+	
 
 	return 0;
 }
