@@ -8,6 +8,22 @@ using namespace std;
 
 class Solution{
     public:
+    void quickSort(vector<int> &a, int left, int right){
+        int pivot = a[(left + right)/2];
+        int i = left, j = right;
+        while(i <= j){
+            while(a[i] < pivot) i++;
+            while(a[j] > pivot) j--;   
+            
+            if(i <= j){
+                swap(a[i], a[j]);
+                i++; j--;
+            }
+        }
+        quickSort(a, left, i);
+        quickSort(a, j, right);
+    }
+    
     bool binarySearch(int N, vector<int> &a, int target){
         // a is sorted array.
         int start = 0; int end = N-1;
@@ -24,7 +40,8 @@ class Solution{
         return false;
     }
     void solve(int N, vector<int> & a, int M, vector<int> & b){
-        sort(a.begin(), a.end());
+        //sort(a.begin(), a.end());
+        quickSort(a, 0, N-1);
         // Binary Search!!
         for(int i=0; i<M; i++){
             if(binarySearch(N, a, b[i]))

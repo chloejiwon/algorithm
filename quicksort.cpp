@@ -9,7 +9,7 @@ void swap(int *a, int *b){
 }
 
 int main(){
-	int arr[5] = {5,4,3,2,1};
+	int arr[5] = {4,1,5,2,3};
 	quickSort(0,4,arr);
 	for(int i =0; i<5; i++)
 		printf("%d ",arr[i]);
