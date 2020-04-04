@@ -48,7 +48,7 @@ class Solution{
             else
                 return -1;
         }
-        
+
     int solve(int conyPosition, int brownPosition) {
         int time = 0;
         bool visit[200001][2];
@@ -75,7 +75,7 @@ class Solution{
                 if (newPosition < 200001 && !visit[newPosition][newTime]) {
                     visit[newPosition][newTime] = true;
                     queue.push(make_pair(newPosition, newTime));
-                }
+                }   
                 newPosition = currentPosition * 2;
                 if (newPosition < 200001 && !visit[newPosition][newTime]) {
                     visit[newPosition][newTime] = true;
