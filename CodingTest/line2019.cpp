@@ -91,8 +91,8 @@ int main(){
     //cin >> C >> B ;
     C = 1; B = 2;
     Solution sol;
-    cout << sol.solution(C,B) << endl;
+    //cout << sol.solution(C,B) << endl;
 
-    //cout << sol.solve(C,B) << endl;
+    cout << sol.solve(C,B) << endl;
     return 0;
 }
