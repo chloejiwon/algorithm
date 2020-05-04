@@ -9,6 +9,9 @@
 
 left child value < n < right child value (for every node)
 
+Search : O(logn)
+Insert : O(logn)
+Delete : O(logn)
  */
 #include <stdlib.h>
 #include <iostream>
