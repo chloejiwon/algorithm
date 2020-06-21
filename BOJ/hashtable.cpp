@@ -30,13 +30,13 @@ void init()
         hashtable[i].values = NULL;
     }
 }
-int hash_key(char *input)
+int hash_key(const char *input)
 {
     int res = 0;
-    int length = strlen(input);
-    for (int i = 0; i < length; i++)
+    while (*input != '\0')
     {
-        res += (int)input[i];
+        res += (int)(*input);
+        input++;
     }
     return (res % MAX_TABLE);
 }
