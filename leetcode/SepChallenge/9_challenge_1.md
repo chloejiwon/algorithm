@@ -18,8 +18,8 @@
 ```cpp
 class Solution {
 public:
-    int dfs(int count, int result, vector<int>&A, vector<bool>&visited){
-        // should make valid time
+    int dfs(int count, int result, vector<int>&A, vector<bool> &visited){
+        
         if(count == 3) {
             for(int i=0; i<4; i++){
                 if(!visited[i]){
@@ -28,21 +28,31 @@ public:
             }
         }
         int max_time = -1;
-        if (count == 1) {
+        if( count == 0){
+            for(int i=0; i<4; i++){
+                if( A[i] <= 2){
+                    visited[i] = true;
+                    max_time = max(max_time, dfs(count+1, result + A[i] * 60 * 10, A, visited));
+                    visited[i] = false;
+                }
+            }           
+        }
+        else if (count == 1) {
             for(int i=0; i<4; i++){
                 if(!visited[i]){
                     if(result + A[i] * 60  < 24 * 60){
                         visited[i] = true;
                         max_time = max(max_time, dfs(count+1, result + A[i] * 60, A, visited));
+                        visited[i] = false;
                     }
                 }
             }
         } else if(count == 2) {
-            // 3번째 자리는 0~5까지만 가능
             for(int i=0; i<4; i++){
                 if(!visited[i] && A[i] <=5){
                     visited[i] = true;
                     max_time = max(max_time,dfs(count+1, result + A[i]*10, A, visited));
+                    visited[i] = false;
                 }
             }
         }
@@ -53,14 +63,10 @@ public:
         
         int max_time = -1;
         sort(A.begin(), A.end(), greater<int>());
-        for(int i=0; i<4; i++){
-            vector<bool> visited(4);
-            if(A[i]==2 || A[i]==1 || A[i]==0)
-            {
-                visited[i] = true;
-                max_time = max(max_time, dfs(1,A[i]*10*60,A, visited));
-            }
-        }
+        
+        vector<bool> visited(4);
+        max_time = max(max_time, dfs(0, 0, A, visited));
+
         if(max_time != -1)
         {
             int h = max_time / 60;
