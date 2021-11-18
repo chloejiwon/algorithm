@@ -166,3 +166,39 @@ class Solution(object):
         return count
 
 
+
+
+# Solution 5
+class Solution(object):
+    # BFS
+    def visitIslands(self, grid, r, c):
+        if r < 0 or c < 0 or r >= len(grid) or c >= len(grid[0]):
+            return
+        if grid[r][c] == "0":
+            return
+        
+        # visit
+        grid[r][c] = "0"
+        self.visitIslands(grid, r-1, c)
+        self.visitIslands(grid, r, c-1)
+        self.visitIslands(grid, r+1, c)
+        self.visitIslands(grid, r, c+1)
+        return
+        
+    def numIslands(self, grid):
+        """
+        :type grid: List[List[str]]
+        :rtype: int
+        """
+        r = len(grid)
+        c = len(grid[0])
+        num = 0
+        
+        for i in range(r):
+            for j in range(c):
+                if grid[i][j] == "1":
+                    self.visitIslands(grid, i, j)
+                    num += 1
+                    
+        return num
+        
