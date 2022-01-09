@@ -35,3 +35,19 @@ class Solution:
         for r in res:
             s += str(r)
         return str(int(s))
+
+
+# simpler version
+class Solution:
+    def largestNumber(self, nums: List[int]) -> str:
+        # return true if "ab" > "ba"
+        def larger(a, b):
+            return str(a) + str(b) >= str(b) + str(a)
+        
+        for i in range(1, len(nums)):
+            j = i
+            while j > 0 and larger(nums[j], nums[j-1]):
+                nums[j-1], nums[j] = nums[j], nums[j-1]
+                j-=1
+        
+        return str(int(''.join(map(str, nums))))
